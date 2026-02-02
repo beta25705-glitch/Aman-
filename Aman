@@ -1,0 +1,140 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aman ❤️ Awantika</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      background: url("hands.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: slowZoom 20s ease-in-out infinite alternate;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 0;
+    }
+
+    @keyframes slowZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    .container {
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+      max-width: 90%;
+    }
+
+    .screen {
+      display: none;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      background: #ff5e8e;
+      color: white;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    img {
+      max-width: 80%;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="screen active" id="intro">
+      <h1>Hey Awantika 💖</h1>
+      <p>Aman has something special for you…</p>
+      <button onclick="next('q1')">Tap to Begin</button>
+    </div>
+
+    <div class="screen" id="q1">
+      <h1>Do you love Aman? 😘</h1>
+      <button onclick="next('q2')">Yes ❤️</button><br><br>
+      <button onclick="next('q2')">Of course 💕</button>
+    </div>
+
+    <div class="screen" id="q2">
+      <h1>Will you always stay with him? 🫶</h1>
+      <button onclick="next('final')">Always 💍</button>
+    </div>
+
+    <div class="screen" id="final">
+      <h1>I love you baccha ❤️</h1>
+      <p>You are everything to me.<br>Will you be my Valentine? 💌</p>
+      <img src="us.jpg" alt="Us together">
+    </div>
+
+  </div>
+
+  <script>
+    function next(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
